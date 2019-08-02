@@ -1,0 +1,4 @@
+<h3>Form</h3>
+<input type="text" class="form-control" [(ngModel)]="userName">
+<p>{{ userName }}{{ updatedText }}</p>
+<button class="btn btn-primary" [disabled]="!userName" (click)="onUpdateUsername()">Add User</button>

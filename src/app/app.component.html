@@ -21,4 +21,17 @@
       <app-successalert></app-successalert>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <button (click)="toggleParagraph()">Display Details</button>
+      <p *ngIf="myP">This is some copy of the details.</p>
+      <div *ngIf="showArr">
+        <div *ngFor="let item of clicksArr">
+          Items Log: {{ item }}
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

@@ -27,7 +27,7 @@
       <button (click)="toggleParagraph()">Display Details</button>
       <p *ngIf="myP">This is some copy of the details.</p>
       <div *ngIf="showArr">
-        <div *ngFor="let item of clicksArr">
+        <div *ngFor="let item of clicksArr" [ngStyle]="{backgroundColor: item >= 5 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': item >= 5}">
           Items Log: {{ item }}
         </div>
       </div>

@@ -6,20 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myP = true;
-  clicksArr = [];
-  showArr = false;
+  serverElements = [{ type: 'server', name: 'Testserver', content: 'Just a test!' }];
 
-  toggleParagraph() {
-    this.myP = this.myP ? false : true;
-    if (this.clicksArr.length) {
-      this.clicksArr.push(this.clicksArr.slice(-1)[0] + 1);
-      if (this.clicksArr.length >= 5) {
-        this.showArr = true;
-      }
-    } else {
-      this.clicksArr.push(1)
-    }
-    this.clicksArr.push();
+  onServerAdded(serverData: { serverName: string, serverContent: string }) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent
+    });
   }
+
+  onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }) {
+    this.serverElements.push({
+      type: 'blueprint',
+      name: blueprintData.serverName,
+      content: blueprintData.serverContent
+    });
+  }
+
 }

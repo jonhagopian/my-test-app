@@ -1,37 +1,9 @@
 <div class="container">
+  <app-cockpit (serverCreated)="onServerAdded($event)" (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <hr>
   <div class="row">
     <div class="col-xs-12">
-      <h3>I'm in the app.component.html</h3>
-      <hr>
-      <div class="app-servers"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="app-form"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-warningalert></app-warningalert>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-successalert></app-successalert>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <button (click)="toggleParagraph()">Display Details</button>
-      <p *ngIf="myP">This is some copy of the details.</p>
-      <div *ngIf="showArr">
-        <div *ngFor="let item of clicksArr" [ngStyle]="{backgroundColor: item >= 5 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': item >= 5}">
-          Items Log: {{ item }}
-        </div>
-      </div>
-
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
     </div>
   </div>
 </div>
